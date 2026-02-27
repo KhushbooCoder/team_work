@@ -2,11 +2,20 @@
 // to generate token and with the help of token you have to get the profile of data(users).......
 
 
-const express=require('express');
-const jwt = require('jsonwebtoken');
+// const express=require('express');
+// const jwt = require('jsonwebtoken');
+// const app=express();
+// const db=require('./db');
+// const  JWT_secret = "34524";
+// app.use(express.json());
+
+const express = require("express");
+const jwt = require("jsonwebtoken");
 const app=express();
-const db=require('./db');
+const db = require("./db");
 const  JWT_secret = "34524";
+require("dotenv").config();
+
 app.use(express.json());
 
 
@@ -105,6 +114,10 @@ app.get('/profile', verifyToken, (request, response) => {
 
 
 
-app.listen(4000,()=>{
-  console.log("server is running....")
-})
+// app.listen(4000,()=>{
+//   console.log("server is running....")
+// })
+
+app.listen(process.env.PORT, () => {
+  console.log(`Server running on port ${process.env.PORT}`);
+});
